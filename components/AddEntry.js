@@ -5,6 +5,8 @@ import UdaciSlider from './common/UdaciSlider';
 import UdaciStepper from './common/UdaciStepper';
 import DateHeader from './common/DateHeader';
 import SubmitButton from './common/SubmitButton';
+import { Ionicons } from '@expo/vector-icons';
+import TextButton from './common/TextButton';
 
 class AddEntry extends Component {
   state = {
@@ -61,9 +63,34 @@ class AddEntry extends Component {
     // Clear local notification
   };
 
+  reset = () => {
+    const key = timeToString();
+
+    // Update Redux
+
+    // Route to Home
+
+    // Update db
+
+    this.setState({
+      run: 0,
+      bike: 0,
+      swim: 0,
+      sleep: 0,
+      eat: 0
+    });
+  };
+
   render() {
     const metaInfo = getMetricMetaInfo();
-    return (
+
+    return this.props.alreadyLogged ? (
+      <View>
+        <Ionicons name="md-happy" size={100} />
+        <Text>You already logged your information for today</Text>
+        <TextButton onPress={this.reset}>Reset</TextButton>
+      </View>
+    ) : (
       <View>
         <DateHeader date={new Date().toLocaleDateString()} />
         {Object.keys(metaInfo).map(key => {
