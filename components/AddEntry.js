@@ -7,6 +7,7 @@ import DateHeader from './common/DateHeader';
 import SubmitButton from './common/SubmitButton';
 import { Ionicons } from '@expo/vector-icons';
 import TextButton from './common/TextButton';
+import { submitEntry, removeEntry } from '../utils/api';
 
 class AddEntry extends Component {
   state = {
@@ -58,7 +59,7 @@ class AddEntry extends Component {
 
     // Navigate to Home
 
-    // Save to db
+    submitEntry(key, entry);
 
     // Clear local notification
   };
@@ -70,7 +71,7 @@ class AddEntry extends Component {
 
     // Route to Home
 
-    // Update db
+    removeEntry(key);
 
     this.setState({
       run: 0,
