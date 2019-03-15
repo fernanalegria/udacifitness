@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { getMetricMetaInfo, timeToString } from './helpers';
+import { getMetricMetaInfo, timeToString } from '../views/utils/helpers';
 
 export const CALENDAR_STORAGE_KEY = 'UdaciFitness:calendar';
 

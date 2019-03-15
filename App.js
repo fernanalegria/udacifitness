@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
-import AddEntry from './components/AddEntry';
-import Test from './components/Test';
+import { View, StyleSheet } from 'react-native';
+import AddEntry from './app/views/screens/AddEntry';
+import Test from './app/views/screens/Test';
+import { configureStore } from './app/state/store';
+import { Provider } from 'react-redux';
 
 const test = false;
+const reduxStore = configureStore();
 
 class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>{test ? <Test /> : <AddEntry />}</View>
+      <Provider store={reduxStore}>
+        <View style={styles.container}>{test ? <Test /> : <AddEntry />}</View>
+      </Provider>
     );
   }
 }

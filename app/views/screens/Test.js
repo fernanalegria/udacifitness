@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Slider } from 'react-native';
 
-export default class App extends React.Component {
+export default class Test extends React.Component {
   state = {
     value: 0
   };
