@@ -1,22 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { SafeAreaView } from "react-native";
+import AddEntry from "./app/views/screens/AddEntry";
+import { configureStore } from "./app/state/store";
+import { Provider } from "react-redux";
+import baseStyles from "./app/views/styles";
 
-export default class App extends React.Component {
+const reduxStore = configureStore();
+
+class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Ionicons name="ios-pizza" color="red" size={100} />
-      </View>
+      <Provider store={reduxStore}>
+        <SafeAreaView style={[baseStyles.androidSafeArea, { flex: 1 }]}>
+          <AddEntry />
+        </SafeAreaView>
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
+export default App;
