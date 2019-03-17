@@ -133,7 +133,3 @@ export const getMetricMetaInfo = metric => {
 
   return metric ? info[metric] : info;
 };
-
-export const getDailyReminderValue = () => ({
-  today: "👋 Don't forget to log your data today!"
-});
