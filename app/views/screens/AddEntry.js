@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { getMetricMetaInfo, timeToString, getDailyReminderValue } from '../utils/helpers';
+import { View, Text, StyleSheet } from 'react-native';
+import {
+  getMetricMetaInfo,
+  timeToString,
+  getDailyReminderValue
+} from '../utils/helpers';
 import UdaciSlider from '../common/UdaciSlider';
 import UdaciStepper from '../common/UdaciStepper';
 import DateHeader from '../common/DateHeader';
@@ -9,7 +13,8 @@ import { Ionicons } from '@expo/vector-icons';
 import TextButton from '../common/TextButton';
 import { submitEntry, removeEntry } from '../../server/api';
 import { connect } from 'react-redux';
-import { entryActions } from 'state/entries';
+import { entryActions } from '../../state/ducks/entries';
+import baseStyles, { colors } from '../styles';
 
 class AddEntry extends Component {
   state = {
@@ -92,20 +97,22 @@ class AddEntry extends Component {
     const metaInfo = getMetricMetaInfo();
 
     return this.props.alreadyLogged ? (
-      <View>
+      <View style={[baseStyles.center, styles.marginWidth]}>
         <Ionicons name="md-happy" size={100} />
         <Text>You already logged your information for today</Text>
-        <TextButton onPress={this.reset}>Reset</TextButton>
+        <TextButton onPress={this.reset} style={{ padding: 10 }}>
+          Reset
+        </TextButton>
       </View>
     ) : (
-      <View>
+      <View style={styles.container}>
         <DateHeader date={new Date().toLocaleDateString()} />
         {Object.keys(metaInfo).map(key => {
           const { getIcon, type, ...rest } = metaInfo[key];
           const value = this.state[key];
 
           return (
-            <View key={key}>
+            <View key={key} style={baseStyles.row}>
               {getIcon()}
               {type === 'slider' ? (
                 <UdaciSlider
@@ -130,15 +137,30 @@ class AddEntry extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: colors.white
+  },
+  marginWidth: {
+    marginRight: 30,
+    marginLeft: 30
+  }
+});
+
 const mapStateToProps = ({ entries }) => {
   const key = timeToString();
   return {
     alreadyLogged: entries[key] && typeof entries[key].today === 'undefined'
-  }
+  };
 };
 
 const mapDispatchToProps = {
   addEntry: entry => entryActions.addEntry(entry)
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddEntry);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddEntry);
