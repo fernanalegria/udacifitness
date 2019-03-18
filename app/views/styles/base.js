@@ -38,5 +38,10 @@ export default StyleSheet.create({
     ...textCenter,
     fontSize: 18,
     color: colors.gray
+  },
+  noDataText: {
+    fontSize: 20,
+    paddingTop: 20,
+    paddingBottom: 20
   }
 });

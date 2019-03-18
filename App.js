@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import AddEntry from './app/views/screens/addEntry/AddEntry';
-import History from './app/views/screens/History';
+import History from './app/views/screens/history/History';
 import { configureStore } from './app/state/store';
 import { Provider } from 'react-redux';
 import baseStyles from './app/views/styles';
