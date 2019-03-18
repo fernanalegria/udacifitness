@@ -5,7 +5,7 @@ import UdaciStepper from '../../common/UdaciStepper';
 import DateHeader from '../../common/DateHeader';
 import SubmitButton from '../../common/SubmitButton';
 import baseStyles, { colors } from '../../styles';
-import { getMetricMetaInfo } from '../../utils/helpers';
+import { getMetricMetaInfo } from 'utils/helpers';
 
 const MetricsView = ({
   entryFunctions: { submit, slide, increment, decrement },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { colors } from '../styles';
+import { colors } from '../views/styles';
 import {
   FontAwesome,
   MaterialIcons,
@@ -133,3 +133,7 @@ export const getMetricMetaInfo = metric => {
 
   return metric ? info[metric] : info;
 };
+
+export const getDailyReminderValue = () => ({
+  today: "👋 Don't forget to log your data today!"
+});

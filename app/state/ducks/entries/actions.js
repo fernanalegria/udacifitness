@@ -4,7 +4,7 @@ import {
   removeEntry,
   fetchCalendarResults
 } from '../../../server/api';
-import { helpers } from '../../utils';
+import { getDailyReminderValue, timeToString } from 'utils/helpers';
 
 const receiveEntries = entries => ({
   type: types.RECEIVE_ENTRIES,
@@ -24,10 +24,14 @@ export const handleAddEntry = (key, entry) => dispatch =>
 
 export const handleRemoveEntry = key => dispatch =>
   removeEntry(key).then(() => {
-    dispatch(addEntry(key, helpers.getDailyReminderValue()));
+    dispatch(addEntry(key, getDailyReminderValue()));
   });
 
 export const handleReceiveEntries = () => dispatch =>
   fetchCalendarResults().then(results => {
+    const key = timeToString();
+    if (!results[key]) {
+      results[key] = getDailyReminderValue();
+    }
     dispatch(receiveEntries(results));
   });

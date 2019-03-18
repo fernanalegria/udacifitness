@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { getMetricMetaInfo, timeToString } from '../views/utils/helpers';
+import { getMetricMetaInfo, timeToString } from 'utils/helpers';
 
 export const CALENDAR_STORAGE_KEY = 'UdaciFitness:calendar';
 
@@ -40,7 +40,7 @@ const setMissingDates = dates => {
     const time = timestamp + i * 24 * 60 * 60 * 1000;
     const strTime = timeToString(time);
 
-    if (typeof dates[strTime] === 'undefined') {
+    if (typeof dates[strTime] === 'undefined' || dates[strTime] && dates[strTime].today) {
       dates[strTime] = null;
     }
   }

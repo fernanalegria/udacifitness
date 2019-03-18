@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { getMetricMetaInfo, timeToString } from '../../utils/helpers';
+import { getMetricMetaInfo, timeToString } from 'utils/helpers';
 import ResetView from './ResetView';
 import MetricsView from './MetricsView';
 import { connect } from 'react-redux';
-import { entryActions } from '../../../state/ducks/entries';
+import { entryActions } from 'state/entries';
 
 class AddEntry extends Component {
   state = {
