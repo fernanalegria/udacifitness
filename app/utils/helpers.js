@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { colors } from '../styles';
+import { colors } from '../views/styles';
 import {
   FontAwesome,
   MaterialIcons,
@@ -70,6 +70,7 @@ export const getMetricMetaInfo = metric => {
       max: 50,
       unit: 'miles',
       step: 1,
+      order: 1,
       type: 'steppers',
       getIcon: () => (
         <View style={[styles.iconContainer, { backgroundColor: colors.red }]}>
@@ -82,6 +83,7 @@ export const getMetricMetaInfo = metric => {
       max: 100,
       unit: 'miles',
       step: 1,
+      order: 2,
       type: 'steppers',
       getIcon: () => (
         <View
@@ -96,6 +98,7 @@ export const getMetricMetaInfo = metric => {
       max: 9900,
       unit: 'meters',
       step: 100,
+      order: 3,
       type: 'steppers',
       getIcon: () => (
         <View style={[styles.iconContainer, { backgroundColor: colors.blue }]}>
@@ -108,6 +111,7 @@ export const getMetricMetaInfo = metric => {
       max: 24,
       unit: 'hours',
       step: 1,
+      order: 4,
       type: 'slider',
       getIcon: () => (
         <View
@@ -122,6 +126,7 @@ export const getMetricMetaInfo = metric => {
       max: 10,
       unit: 'rating',
       step: 1,
+      order: 5,
       type: 'slider',
       getIcon: () => (
         <View style={[styles.iconContainer, { backgroundColor: colors.pink }]}>

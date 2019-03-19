@@ -4,14 +4,7 @@ import { purple, white } from '../styles/colors';
 import { PLATFORM } from '../utils/constants';
 
 const SubmitButton = ({ onPress }) => (
-  <TouchableOpacity
-    onPress={onPress}
-    style={
-      Platform.OS === PLATFORM.iOS
-        ? styles.iosSubmitBtn
-        : styles.androidSubmitBtn
-    }
-  >
+  <TouchableOpacity onPress={onPress} style={styles.submitBtn}>
     <Text style={styles.submitBtnText}>SUBMIT</Text>
   </TouchableOpacity>
 );
@@ -25,19 +18,21 @@ const submitBtn = {
 };
 
 export const styles = StyleSheet.create({
-  iosSubmitBtn: {
-    ...submitBtn,
-    borderRadius: 7,
-    marginLeft: 40,
-    marginRight: 40
-  },
-  androidSubmitBtn: {
-    ...submitBtn,
-    borderRadius: 2,
-    marginLeft: 30,
-    marginRight: 30,
-    alignSelf: 'flex-end'
-  },
+  submitBtn: Platform.select({
+    [PLATFORM.iOS]: {
+      ...submitBtn,
+      borderRadius: 7,
+      marginLeft: 40,
+      marginRight: 40
+    },
+    [PLATFORM.Android]: {
+      ...submitBtn,
+      borderRadius: 2,
+      marginLeft: 30,
+      marginRight: 30,
+      alignSelf: 'flex-end'
+    }
+  }),
   submitBtnText: {
     color: white,
     fontSize: 22,

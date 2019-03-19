@@ -3,7 +3,7 @@ import { PLATFORM } from '../utils/constants';
 import * as colors from './colors';
 
 const textCenter = {
-  alignText: 'center'
+  textAlign: 'center'
 };
 
 export default StyleSheet.create({
@@ -38,5 +38,10 @@ export default StyleSheet.create({
     ...textCenter,
     fontSize: 18,
     color: colors.gray
+  },
+  noDataText: {
+    fontSize: 20,
+    paddingTop: 20,
+    paddingBottom: 20
   }
 });

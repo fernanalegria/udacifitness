@@ -8,6 +8,6 @@ export default createReducer({})({
   }),
   [types.ADD_ENTRY]: (state, action) => ({
     ...state,
-    ...action.entry
+    [action.key]: action.entry
   })
 });
