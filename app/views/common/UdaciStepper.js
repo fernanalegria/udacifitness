@@ -13,25 +13,28 @@ import { PLATFORM } from '../utils/constants';
 const UdaciStepper = ({ unit, value, onIncrement, onDecrement }) => (
   <View style={[baseStyles.row, { justifyContent: 'space-between' }]}>
     <View style={{ flexDirection: 'row' }}>
-      {Platform.OS === PLATFORM.iOS ? (
-        <Fragment>
-          <TouchableOpacity onPress={onDecrement} style={styles.iosLeftBtn}>
-            <Entypo name="minus" size={30} color={colors.purple} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onIncrement} style={styles.iosRightBtn}>
-            <Entypo name="plus" size={30} color={colors.purple} />
-          </TouchableOpacity>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <TouchableOpacity onPress={onDecrement} style={styles.androidBtn}>
-            <FontAwesome name="minus" size={30} color={colors.white} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onIncrement} style={styles.androidBtn}>
-            <FontAwesome name="plus" size={30} color={colors.white} />
-          </TouchableOpacity>
-        </Fragment>
-      )}
+      {Platform.select({
+        [PLATFORM.iOS]: (
+          <Fragment>
+            <TouchableOpacity onPress={onDecrement} style={styles.iosLeftBtn}>
+              <Entypo name="minus" size={30} color={colors.purple} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onIncrement} style={styles.iosRightBtn}>
+              <Entypo name="plus" size={30} color={colors.purple} />
+            </TouchableOpacity>
+          </Fragment>
+        ),
+        [PLATFORM.Android]: (
+          <Fragment>
+            <TouchableOpacity onPress={onDecrement} style={styles.androidBtn}>
+              <FontAwesome name="minus" size={30} color={colors.white} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onIncrement} style={styles.androidBtn}>
+              <FontAwesome name="plus" size={30} color={colors.white} />
+            </TouchableOpacity>
+          </Fragment>
+        )
+      })}
     </View>
     <View style={baseStyles.metricCounter}>
       <Text style={baseStyles.metric}>{value}</Text>
