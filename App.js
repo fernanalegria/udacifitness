@@ -1,11 +1,11 @@
 import React from 'react';
-import { SafeAreaView, View, Platform } from 'react-native';
+import { View, Platform } from 'react-native';
 import AddEntry from './app/views/screens/addEntry/AddEntry';
 import History from './app/views/screens/history/History';
 import UdaciStatusBar from './app/views/common/UdaciStatusBar';
 import { configureStore } from './app/state/store';
 import { Provider } from 'react-redux';
-import baseStyles, { colors } from './app/views/styles';
+import { colors } from './app/views/styles';
 import {
   createBottomTabNavigator,
   createMaterialTopTabNavigator,
@@ -68,10 +68,10 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={reduxStore}>
-        <SafeAreaView style={[baseStyles.androidSafeArea, { flex: 1 }]}>
-          <View style={{ height: 20 }} />
+        <View style={{ flex: 1 }}>
+          <UdaciStatusBar backgroundColor={colors.purple} barStyle="light-content" />
           <Tabs />
-        </SafeAreaView>
+        </View>
       </Provider>
     );
   }
