@@ -74,7 +74,7 @@ export const getMetricMetaInfo = metric => {
       type: 'steppers',
       getIcon: () => (
         <View style={[styles.iconContainer, { backgroundColor: colors.red }]}>
-          <MaterialIcons name="directions-run" color={'white'} size={35} />
+          <MaterialIcons name="directions-run" color="white" size={35} />
         </View>
       )
     },
@@ -89,7 +89,7 @@ export const getMetricMetaInfo = metric => {
         <View
           style={[styles.iconContainer, { backgroundColor: colors.orange }]}
         >
-          <MaterialCommunityIcons name="bike" color={'white'} size={35} />
+          <MaterialCommunityIcons name="bike" color="white" size={35} />
         </View>
       )
     },
@@ -102,7 +102,7 @@ export const getMetricMetaInfo = metric => {
       type: 'steppers',
       getIcon: () => (
         <View style={[styles.iconContainer, { backgroundColor: colors.blue }]}>
-          <MaterialCommunityIcons name="swim" color={'white'} size={35} />
+          <MaterialCommunityIcons name="swim" color="white" size={35} />
         </View>
       )
     },
@@ -117,7 +117,7 @@ export const getMetricMetaInfo = metric => {
         <View
           style={[styles.iconContainer, { backgroundColor: colors.lightPurp }]}
         >
-          <FontAwesome name="bed" color={'white'} size={35} />
+          <FontAwesome name="bed" color="white" size={35} />
         </View>
       )
     },
@@ -130,7 +130,7 @@ export const getMetricMetaInfo = metric => {
       type: 'slider',
       getIcon: () => (
         <View style={[styles.iconContainer, { backgroundColor: colors.pink }]}>
-          <MaterialCommunityIcons name="food" color={'white'} size={35} />
+          <MaterialCommunityIcons name="food" color="white" size={35} />
         </View>
       )
     }

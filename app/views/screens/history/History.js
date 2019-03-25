@@ -34,7 +34,7 @@ class History extends Component {
     <View style={styles.item}>
       <HistoryText
         date={formattedDate}
-        text={"You didn't log any data on this day."}
+        text="You didn't log any data on this day."
       />
     </View>
   );
