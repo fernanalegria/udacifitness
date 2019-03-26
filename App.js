@@ -67,7 +67,6 @@ const AppContainer = createAppContainer(
     Home: {
       screen: Tabs,
       navigationOptions: {
-
         header: null
       }
     },

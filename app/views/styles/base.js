@@ -7,6 +7,10 @@ const textCenter = {
 };
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.white
+  },
   row: {
     flex: 1,
     flexDirection: 'row',
