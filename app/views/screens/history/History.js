@@ -6,7 +6,7 @@ import UdaciFitnessCalendar from 'udacifitness-calendar';
 import { colors } from '../../styles';
 import { PLATFORM } from '../../utils/constants';
 import HistoryText from './HistoryText';
-import MetricsSummary from './MetricsCard';
+import MetricsCard from './MetricsCard';
 import { AppLoading } from 'expo';
 
 class History extends Component {
@@ -25,7 +25,12 @@ class History extends Component {
       {today ? (
         <HistoryText date={formattedDate} text={today} />
       ) : (
-        <MetricsSummary date={formattedDate} metrics={metrics} />
+        <MetricsCard
+          date={formattedDate}
+          metrics={metrics}
+          entryId={key}
+          navigation={this.props.navigation}
+        />
       )}
     </View>
   );

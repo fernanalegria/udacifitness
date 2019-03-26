@@ -4,10 +4,12 @@ import { getMetricMetaInfo } from '../../../utils/helpers';
 import DateHeader from '../../common/DateHeader';
 import baseStyles from '../../styles';
 
-const MetricsCard = ({ metrics, date }) => {
+const MetricsCard = ({ metrics, date, navigation, entryId }) => {
   const metaInfo = getMetricMetaInfo();
   return (
-    <TouchableOpacity onPress={() => console.log('Pressed!')}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('EntryDetail', { entryId })}
+    >
       <DateHeader date={date} />
       {Object.keys(metrics)
         .sort((a, b) => metaInfo[a].order - metaInfo[b].order)
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
   metric: {
     justifyContent: 'center',
     alignItems: 'flex-start'
-  },
+  }
 });
 
 export default MetricsCard;
