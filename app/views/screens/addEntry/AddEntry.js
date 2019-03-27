@@ -4,6 +4,7 @@ import ResetView from './ResetView';
 import MetricsView from './MetricsView';
 import { connect } from 'react-redux';
 import { entryActions } from 'state/entries';
+import { NavigationActions } from 'react-navigation';
 
 class AddEntry extends Component {
   state = {
@@ -53,7 +54,7 @@ class AddEntry extends Component {
       eat: 0
     });
 
-    // Navigate to Home
+    this.goToHome();
 
     // Clear local notification
   };
@@ -63,8 +64,6 @@ class AddEntry extends Component {
 
     this.props.removeEntry(key);
 
-    // Route to Home
-
     this.setState({
       run: 0,
       bike: 0,
@@ -72,6 +71,16 @@ class AddEntry extends Component {
       sleep: 0,
       eat: 0
     });
+
+    this.goToHome();
+  };
+
+  goToHome = () => {
+    this.props.navigation.dispatch(
+      NavigationActions.back({
+        key: 'AddEntry'
+      })
+    );
   };
 
   render() {

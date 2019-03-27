@@ -24,7 +24,9 @@ export const handleAddEntry = (key, entry) => dispatch =>
 
 export const handleRemoveEntry = key => dispatch =>
   removeEntry(key).then(() => {
-    dispatch(addEntry(key, getDailyReminderValue()));
+    dispatch(
+      addEntry(key, key === timeToString() ? getDailyReminderValue() : null )
+    );
   });
 
 export const handleReceiveEntries = () => dispatch =>
