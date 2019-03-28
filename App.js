@@ -3,6 +3,7 @@ import { View, Platform } from 'react-native';
 import AddEntry from './app/views/screens/addEntry';
 import History from './app/views/screens/history';
 import EntryDetail from './app/views/screens/entryDetail';
+import Live from './app/views/screens/live';
 import UdaciStatusBar from './app/views/common/UdaciStatusBar';
 import { configureStore } from './app/state/store';
 import { Provider } from 'react-redux';
@@ -38,6 +39,15 @@ const Tabs = createTabNavigator(
         tabBarLabel: 'Add Entry',
         tabBarIcon: ({ tintColor }) => (
           <FontAwesome name="plus-square" size={30} color={tintColor} />
+        )
+      }
+    },
+    Live: {
+      screen: Live,
+      navigationOptions: {
+        tabBarLabel: 'Live',
+        tabBarIcon: ({ tintColor }) => (
+          <Ionicons name="ios-speedometer" size={30} color={tintColor} />
         )
       }
     }
