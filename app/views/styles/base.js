@@ -7,6 +7,7 @@ const textCenter = {
 };
 
 export default StyleSheet.create({
+  textCenter,
   container: {
     flex: 1,
     backgroundColor: colors.white
@@ -20,9 +21,6 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  textCenter: {
-    ...textCenter
   },
   androidSafeArea: {
     paddingTop:
