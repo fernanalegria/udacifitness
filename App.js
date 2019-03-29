@@ -16,6 +16,7 @@ import {
 } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { PLATFORM } from './app/views/utils/constants';
+import { setLocalNotification } from 'utils/helpers';
 
 const createTabNavigator = Platform.select({
   [PLATFORM.iOS]: createBottomTabNavigator,
@@ -95,6 +96,10 @@ const AppContainer = createAppContainer(
 const reduxStore = configureStore();
 
 class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
+
   render() {
     return (
       <Provider store={reduxStore}>

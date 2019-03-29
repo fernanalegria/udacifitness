@@ -7,17 +7,12 @@ import Compass from './Compass';
 import MetricDisplay from './MetricDisplay';
 import { Location, Permissions } from 'expo';
 import { calculateDirection } from 'utils/helpers';
-
-const statusType = {
-  denied: 'denied',
-  undetermined: 'undetermined',
-  granted: 'granted'
-};
+import { STATUS_TYPE } from '../../utils/constants';
 
 class Live extends Component {
   state = {
     coords: null,
-    status: statusType.undetermined,
+    status: STATUS_TYPE.undetermined,
     direction: ''
   };
 
@@ -28,7 +23,7 @@ class Live extends Component {
   }
 
   onGetLocation = ({ status }) => {
-    if (status === statusType.granted) {
+    if (status === STATUS_TYPE.granted) {
       this.setLocation();
     } else {
       this.setState({ status });
@@ -37,7 +32,7 @@ class Live extends Component {
 
   handleLocationError = error => {
     console.warn('Error getting Location permission: ', error);
-    this.setState({ status: statusType.undetermined });
+    this.setState({ status: STATUS_TYPE.undetermined });
   };
 
   setLocation = () => {
@@ -51,7 +46,7 @@ class Live extends Component {
         const direction = calculateDirection(coords.heading);
         this.setState({
           coords,
-          status: statusType.granted,
+          status: STATUS_TYPE.granted,
           direction
         });
       }
@@ -66,7 +61,7 @@ class Live extends Component {
 
   render() {
     const { coords, status, direction } = this.state;
-    const { denied, undetermined, granted } = statusType;
+    const { denied, undetermined, granted } = STATUS_TYPE;
 
     switch (status) {
       case null:

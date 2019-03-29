@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { getMetricMetaInfo, timeToString } from 'utils/helpers';
+import {
+  getMetricMetaInfo,
+  timeToString,
+  setLocalNotification,
+  clearLocalNotifications
+} from 'utils/helpers';
 import ResetView from './ResetView';
 import MetricsView from './MetricsView';
 import { connect } from 'react-redux';
@@ -56,7 +61,7 @@ class AddEntry extends Component {
 
     this.goToHome();
 
-    // Clear local notification
+    clearLocalNotifications().then(setLocalNotification);
   };
 
   reset = () => {
