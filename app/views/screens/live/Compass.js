@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import baseStyles, { colors } from '../../styles';
 
-const Compass = ({ header }) => (
+const Compass = ({ header, direction }) => (
   <View style={baseStyles.center}>
     <Text style={header}>You are heading</Text>
-    <Text style={styles.direction}>North</Text>
+    <Text style={styles.direction}>{direction}</Text>
   </View>
 );
 
